@@ -135,6 +135,34 @@
 				<h1>Projekt 1</h1>
 
 				<p>Miejsce na projekt laboratoryjny</p>
+				<script async>
+	
+					let tablica = ['Tekst', 2, 'aabbcc', 4, 'gfd', 6];
+					alert(tablica[0]);
+					tablica[tablica.length-1] = 7;
+					//alert(tablica[5]);
+					tablica[6] = 'nowy6';
+					tablica[tablica.length] = 'nowy7';
+					tablica.push('nowy8', 'nowy9', 'nowy10', 'nowy11');
+					tablica.unshift('nowy12', 'nowy13');
+					
+					let p = [0, 1, 2, 3];
+					let totalItems = p.push(4, 5);
+					//alert(totalItems);
+					let removeItem = p.pop();
+					//alert(removedItem);
+				</script>
+
+				<script>
+					nowaTablica = ['monitor', 'myszka', 'klawiatura'];
+					document.write('<p>Pierwszy element to <strong>');
+					document.write(nowaTablica[0] + '</strong>.</p>');
+					document.write('<p>Ostatni element to <strong>');
+					document.write(nowaTablica[nowaTablica.length-1] + '</strong>.</p>');
+					nowaTablica.unshift('taboret');
+					document.write('<p>Teraz pierwszy element to <strong>');
+					document.write(nowaTablica[0] + '</strong>.</p>');
+				</script>
 
 			</div>
 		</div>
