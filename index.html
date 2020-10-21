@@ -86,7 +86,7 @@
 					<div class="col-md-2" align="left">
 						<p>nazwisko:</p>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4" id="nazwisko">
 						<p>Szymański</p>
 					</div>
 				</div>
@@ -94,7 +94,7 @@
 					<div class="col-md-2" align="left">
 						<p>imię:</p>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4" id="imie">
 						<p>Łukasz</p>
 					</div>
 				</div>
@@ -102,7 +102,7 @@
 					<div class="col-md-2" align="left">
 						<p>grupa:</p>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4" id="grupa">
 						<p>II</p>
 					</div>
 				</div>
@@ -110,7 +110,7 @@
 					<div class="col-md-2" align="left">
 						<p>email:</p>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4" id="email">
 						<p>18929@student.pwsz.elblag.pl</p>
 					</div>
 				</div>
@@ -118,7 +118,7 @@
 					<div class="col-md-2" align="left">
 						<p>nr indeksu:</p>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4" id="indeks">
 						<p>18929</p>
 					</div>
 				</div>
@@ -176,6 +176,41 @@
 					document.write('<p>Liczba akapitów: ' + pCounter + '</p>');
 				</script>
 
+				<script>
+					document.getElementById('nazwisko').innerHTML = "<p>Szymański</p>";
+					document.getElementById('imie').innerHTML = "<p>Łukasz</p>";
+					document.getElementById('grupa').innerHTML = "<p>II</p>";
+					document.getElementById('email').innerHTML = "<p>18929@student.pwsz.elblag.pl</p>";
+					document.getElementById('indeks').innerHTML = "<p>18929</p>";
+					
+					let i = 0;
+					while(i<tablica.length/2){
+						document.write(tablica[i] + ", ");
+						i++;
+					}
+					document.write("<br>");
+					for(i=0; i<tablica.length/2; i++){
+						document.write(tablica[i] + ", ");
+					}
+					document.write("<br>");
+
+				</script>
+
+				<button type='button' onclick="wyswietlOkno()">Wyświetl moje dane</button>
+				
+
+				<script>
+					function wyswietlOkno() {
+						nazwisko = document.getElementById('nazwisko').innerText;
+						imie = document.getElementById('imie').innerText;
+						grupa = document.getElementById('grupa').innerText;
+						email = document.getElementById('email').innerText;
+						indeks = document.getElementById('indeks').innerText;
+						
+						dane = "Nazwisko: " + nazwisko + "\nImię: " + imie + "\nGrupa: " + grupa + "\nEmail: " + email + "\nIndeks: " + indeks;
+						alert(dane);
+					}
+				</script>
 			</div>
 		</div>
 	</section>
@@ -186,8 +221,37 @@
 			<div class="jumbotron">
 				<h1>Projekt 2</h1>
 				
-				<p>Miejsce na projekt laboratoryjny</p>
-				
+				<h2>Quiz</h2>
+				<p id="pyt">Pytanie</p>
+					<input type='number' placeholder='Wpisz odpowiedź'></input>
+					
+
+				<script>
+					let questions = [
+						['Kiedy powstało pierwsze pianino?', 1709],
+						['Ile wyszło części Shreka?', 4],
+						['W którym roku była bitwa pod grunwaldem?', 1410]
+					];
+					
+
+					i = 0;
+
+					document.write("<button id='nast' onclick='next(" + i + ")' type='button'>Następne pytanie</button>");
+
+
+
+					document.getElementById('pyt').innerHTML = '<p>Pytanie ' + (i+1) + '. ' + questions[i][0];
+
+					button = document.getElementById('nest');
+					button.addEventListener('click', next, 1);
+					function next(i) {
+						i = i+1;
+						document.getElementById('pyt').innerHTML = '<p>Pytanie ' + (i+1) + '. ' + questions[i][0];
+						document.getElementById('nast').innerHTML = "<button id='nast' onclick='next(" + i + ")' type='button'>Następne pytanie</button>";
+					}
+					
+					
+				</script>
 			</div>
 		</div>
 	</section>
