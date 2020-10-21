@@ -165,7 +165,15 @@
 				</script>
 
 				<script>
-					let counter = document 
+					document.write('<h3>Statystyki strony</h3>')
+					let sectionCounter = document.getElementsByTagName('section').length;
+					document.write('<p>Liczba sekcji: ' + sectionCounter + '</p>');
+					let divCounter = document.getElementsByTagName('div').length;
+					document.write('<p>Liczba elementów div: ' + divCounter + '</p>');
+					let h1Counter = document.getElementsByTagName('h1').length;
+					document.write('<p>Liczba elementów h1: ' + h1Counter + '</p>');
+					let pCounter = document.getElementsByTagName('p').length;
+					document.write('<p>Liczba akapitów: ' + pCounter + '</p>');
 				</script>
 
 			</div>
