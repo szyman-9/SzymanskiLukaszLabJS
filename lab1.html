@@ -48,11 +48,11 @@
 
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.html"
-						class="btn btn-primary" title="Strona główna"> <span
+					<li ><a href="index.html"
+						 title="Strona główna"> <span
 							class="glyphicon glyphicon-home"></span>
 					</a></li>
-					<li><a href="lab1.html#projekt2">Projekt 1</a></li>
+					<li class="active"><a href="lab1.html#projekt2">Projekt 1</a></li>
 					<li><a href="lab2.html#projekt1">Projekt 2</a></li>
 					<li><a href="#form" data-toggle="modal"
 						data-target="#ModalForm">Kontakt</a></li>
@@ -129,10 +129,51 @@
 	</section>
 	<!-- /container -->
 
-	
+	<section id="projekt2">
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Quiz</h1>
+				
+				<h2>Quiz</h2>
+				<p id="pyt">Pytanie</p>
+					<input type='number' placeholder='Wpisz odpowiedź'></input>
+					
+
+				<script>
+					let questions = [
+						['Kiedy powstało pierwsze pianino?', 1709],
+						['Ile wyszło części Shreka?', 4],
+						['W którym roku była bitwa pod grunwaldem?', 1410]
+					];
+					
+
+					i = 0;
+
+					document.write("<button id='nast' onclick='next(" + i + ")' type='button'>Następne pytanie</button>");
 
 
-	
+
+					document.getElementById('pyt').innerHTML = '<p>Pytanie ' + (i+1) + '. ' + questions[i][0];
+
+					
+					function next(i) {
+						let questions = [
+						['Kiedy powstało pierwsze pianino?', 1709],
+						['Ile wyszło części Shreka?', 4],
+						['W którym roku była bitwa pod grunwaldem?', 1410]
+						];
+						if(i<questions.length) {
+							i = i+1;
+						}
+						else i = questions.length;
+						document.getElementById('pyt').innerHTML = '<p>Pytanie ' + (i+1) + '. ' + questions[i][0];
+						document.getElementById('nast').onclick = "next(" + i + ")";
+						document.getElementById('nast') = "<button id='nast' onclick='next(" + i + ")' type='button'>Następne pytanie</button>"
+					}
+				</script>
+			</div>
+		</div>
+	</section>
 
 	<footer>
 		<div class="container" style="margin-top: 5%">
