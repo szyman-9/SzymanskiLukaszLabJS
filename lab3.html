@@ -24,46 +24,6 @@
 <script src="js/jquery.easing.1.3.min.js"></script>
 <script src="js/jquery.easing.compatibility.js"></script>
 
-<script>
-    let score = 0;
-    let q = 0;
-    let questions = [
-					['Kiedy powstało pierwsze pianino?', 1709],
-					['Ile wyszło części Shreka?', 4],
-					['W którym roku była Bitwa pod Grunwaldem?', 1410],
-                    ['Ile decymetrów sześciennych to 25 litrów?', 25],
-                    ['Ile cali ma monitor 54 calowy?', 54],
-                    ['Ile stron ma kartka?', 2]
-					];
-
-    function nextQuestion() {
-        testQuestion(questions[q]);
-        if(q<questions.length-1) {
-            q++;
-            msg = (q+1) + '. ' + questions[q][0];
-            document.getElementById('pyt').innerHTML = msg;
-            document.getElementById('next').value = '';
-            if(q == questions.length - 1) document.getElementById('buttonNext').innerHTML = 'Koniec';
-        }
-        else {
-            showScore();
-            document.getElementById('buttonNext').disabled = true;
-            document.getElementById('next').disabled = true;
-        }
-        
-        console.log(q);
-    }
-
-    function testQuestion(question) {
-        answer = document.getElementById('next').value;
-        if (answer == question[1]) {
-            score++; 
-        }
-        else {
-            alert('Prawidłowa odpowiedź to ' + question[1]);
-        }
-    }
-</script>
 
 </head>
 
@@ -94,7 +54,7 @@
 					</a></li>
 					<li><a href="lab1.html#projekt2">Projekt 1</a></li>
 					<li><a href="lab2.html#projekt1">Projekt 2</a></li>
-					<li class="active"><a href="lab3.html#projekt1">Projekt 3</a></li>
+					<li class="active"><a href="lab3.html#lab3">Projekt 3</a></li>
 					<li><a href="#form" data-toggle="modal"
 						data-target="#ModalForm">Kontakt</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -170,10 +130,37 @@
 	</section>
 	<!-- /container -->
 
-	<section id="projekt1">
+	<section id="lab3">
 		<div class="container">
-			<div class="jumbotron">
-                <p id="message">Komunikat specjalny</p>
+			<div class="jumbotron" id="proj">
+				<p><span class="pq">640 kilobajtów to wystarczająca ilość pamięci dla każdego użytkownika.</span></p>
+				<p><span>Dziś ten, kto nie potrafi obsługiwać komputera, jest analfabetą.</span></p>
+				<p><span class="pq">Komputer nie liczy się z człowiekiem, bez człowieka też.</span></p>
+				<p><span>Nie ma żadnego powodu, aby ktokolwiek posiadał w domu komputer.</span></p>
+				<p><span class="pq">Mój dom jest tam, gdzie jest mój komputer.</span></p>
+				<p><span>Prawdziwe znaczenie komputera ujawni się wówczas, gdy stanie się on kontrolowanym przez ucznia narzędziem wspomagającym naukę.</span></p>
+				<p><span class="pq">Komputery są bezużyteczne. Mogą nam dać tylko odpowiedź.</span></p>
+				<br><br><br>
+
+				<a>Odnośnik 1</a>
+				<a>Odnośnik 2</a>
+				<a>Odnośnik 3</a>
+
+				<form>
+					<input id="but0" type="submit" value="Kliknij mnie">
+					<br><br><br>
+					<input id="but1" type="submit" value="Przycisk 1"><br>
+					<input id="but2" type="submit" value="Przycisk 2"><br>
+					<input id="but3" type="submit" value="Przycisk 3"><br>
+					<input id="but4" type="submit" value="Przycisk 4"><br>
+					<input id="but5" type="submit" value="Przycisk 5"><br>
+					<input id="but6" type="submit" value="Przycisk 6"><br>
+					<input id="but7" type="submit" value="Przycisk 7"><br>
+					<input id="but8" type="submit" value="Przycisk 8"><br>
+					<input id="but9" type="submit" value="Przycisk 9"><br>
+					<input id="but10" type="submit" value="Przycisk 10">
+				</form>
+			
 			</div>
 		</div>
 	</section>
@@ -306,6 +293,59 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		$(document).ready(function(){
+			$('span.pq').each(function() {
+				let quote = $(this).clone();
+				quote.removeClass('pq');
+				quote.addClass('pullquote');
+				$(this).before(quote);
+			});
+
+			$('body').dblclick(function(){
+				alert('Nacisnąłeś dwukrotnie!');
+			});
+
+			$('a').mouseover(function(){
+				let message = "<p>Wskazałeś odnośnik myszą!!!</p>";
+				$('#proj').append(message);
+			});
+
+			$('#but0').click(function(){
+				$(this).val("Zostałem kliknięty");
+			});
+
+			$('#but1').click(function(){
+				$('body').css("background-color", "gray");
+				$(this).val("1. kliknięty");
+			});
+
+			$('#but2').click(function(){
+				$('p').css("background-color", "darkgray");
+				$('p').css("color", "blue");
+				$(this).val("2. kliknięty");
+			});
+
+			$('#but3').click(function(){
+				$('body').css("background-color", "yellow");
+				$('p').css("color", "yellow");
+				$('.jumbotron').css("background-color", "black");
+				$(this).val("3. kliknięty");
+			});
+
+			$('#but4').click(function(){
+				$('body').css("background", "linear-gradient(90deg, rgba(182,62,62,1) 0%, rgba(106,53,189,1) 0%, rgba(232,105,149,1) 100%)");
+				$(this).val("4. kliknięty");
+			});
+
+			$('#but5').click(function(){
+				$('.jumbotron').css("background-color", "white");
+				$(this).val("5. kliknięty");
+			});
+
+		});
+	</script>
 
 	<!-- Bootstrap core JavaScript
     ================================================== -->
