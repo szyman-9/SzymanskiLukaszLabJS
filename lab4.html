@@ -54,8 +54,8 @@
 					</a></li>
 					<li><a href="lab1.html#projekt2">Projekt 1</a></li>
 					<li><a href="lab2.html#projekt1">Projekt 2</a></li>
-					<li class="active"><a href="lab3.html#lab3">Projekt 3</a></li>
-					<li><a href="lab4.html#lab4">Projekt 4</a></li>
+					<li><a href="lab3.html#lab3">Projekt 3</a></li>
+					<li class="active"><a href="lab4.html#lab4">Projekt 4</a></li>
 					<li><a href="#form" data-toggle="modal"
 						data-target="#ModalForm">Kontakt</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -131,36 +131,60 @@
 	</section>
 	<!-- /container -->
 
-	<section id="lab3">
+	<section id="lab4">
 		<div class="container">
-			<div class="jumbotron" id="proj">
-				<p><span class="pq">640 kilobajtów to wystarczająca ilość pamięci dla każdego użytkownika.</span></p>
-				<p><span>Dziś ten, kto nie potrafi obsługiwać komputera, jest analfabetą.</span></p>
-				<p><span class="pq">Komputer nie liczy się z człowiekiem, bez człowieka też.</span></p>
-				<p><span>Nie ma żadnego powodu, aby ktokolwiek posiadał w domu komputer.</span></p>
-				<p><span class="pq">Mój dom jest tam, gdzie jest mój komputer.</span></p>
-				<p><span>Prawdziwe znaczenie komputera ujawni się wówczas, gdy stanie się on kontrolowanym przez ucznia narzędziem wspomagającym naukę.</span></p>
-				<p><span class="pq">Komputery są bezużyteczne. Mogą nam dać tylko odpowiedź.</span></p>
-				<br><br><br>
+			<div class="jumbotron" id="proj1">
+				<table class="table table-striped">
+					<thead>
+					  <tr>
+						<th scope="col">#</th>
+						<th scope="col">First</th>
+						<th scope="col">Last</th>
+						<th scope="col">Inne</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<th scope="row">1</th>
+						<td>Stanisław</td>
+						<td>Chmura</td>
+						<td><input type="text"></td>
+					  </tr>
+					  <tr>
+						<th scope="row">2</th>
+						<td><q>Krótki cytat</q></td>
+						<td>Wątroba</td>
+						<td><input type="radio"></td>
+					  </tr>
+					  <tr>
+						<th scope="row">3</th>
+						<td>Larry</td>
+						<td><hr></td>
+						<td><p>Jakiś akapit, jakiś tekst jakiś tekst jakiś tek stjakiś tekst jakiś te kstjak iś tekst</p></td>
+					  </tr> 
+					  <tr>
+						<th scope="row">4</th>
+						<td><ol><li>Lista numerowana</li><li>I drugi element</li></ol></td>
+						<td><input type="color"></td>
+						<td><ul><li>Pierwszy element listy</li><li>Drugi element listy</li></ul></td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
 
-				<a>Odnośnik 1</a>
-				<a>Odnośnik 2</a>
-				<a>Odnośnik 3</a>
-
-				<form>
-					<input id="but0" type="submit" value="Kliknij mnie">
-					<br><br><br>
-					<input id="but1" type="submit" value="Przycisk 1"><br>
-					<input id="but2" type="submit" value="Przycisk 2"><br>
-					<input id="but3" type="submit" value="Przycisk 3"><br>
-					<input id="but4" type="submit" value="Przycisk 4"><br>
+			<div class="jumbotron" id="proj2">
+				<div class="container">
+					<input id="but1" class="btn btn-default" type="submit" value="1. Znikanie tabeli"><br>
+					<input id="but2" class="btn btn-default" type="submit" value="2. Znikanie parzystych wierszy tabeli"><br>
+					<input id="but3" class="btn btn-default" type="submit" value="3. Zmiana koloru tekstu na zielony dla nieparzystych wierszy tabeli"><br>
+					<input id="but4" class="btn btn-default" type="submit" value="4. Nagłówek tabeli w kolorze fioletowym, pochylony"><br>
 					<input id="but5" type="submit" value="Przycisk 5"><br>
 					<input id="but6" type="submit" value="Przycisk 6"><br>
 					<input id="but7" type="submit" value="Przycisk 7"><br>
 					<input id="but8" type="submit" value="Przycisk 8"><br>
 					<input id="but9" type="submit" value="Przycisk 9"><br>
-					<input id="but10" type="submit" value="Przycisk 10">
-				</form>
+				<input id="but10" type="submit" value="Przycisk 10">
+				</div>
 			
 			</div>
 		</div>
@@ -297,52 +321,30 @@
 
 	<script>
 		$(document).ready(function(){
-			$('span.pq').each(function() {
-				let quote = $(this).clone();
-				quote.removeClass('pq');
-				quote.addClass('pullquote');
-				$(this).before(quote);
-			});
-
-			$('body').dblclick(function(){
-				alert('Nacisnąłeś dwukrotnie!');
-			});
-
-			$('a').mouseover(function(){
-				let message = "<p>Wskazałeś odnośnik myszą!!!</p>";
-				$('#proj').append(message);
-			});
-
-			$('#but0').click(function(){
-				$(this).val("Zostałem kliknięty");
-			});
-
+			
 			$('#but1').click(function(){
-				$('body').css("background-color", "gray");
-				$(this).val("1. kliknięty");
+				$('table').fadeToggle();
+				$(this).toggleClass("btn-danger");
 			});
 
 			$('#but2').click(function(){
-				$('p').css("background-color", "darkgray");
-				$('p').css("color", "blue");
-				$(this).val("2. kliknięty");
+				$('tbody > tr:odd').fadeToggle();
+				$(this).toggleClass("btn-danger");
 			});
 
 			$('#but3').click(function(){
-				$('body').css("background-color", "yellow");
-				$('p').css("color", "yellow");
-				$('.jumbotron').css("background-color", "black");
-				$(this).val("3. kliknięty");
+				$('tbody > tr:even').toggleClass("tableFont");
+				$(this).toggleClass("btn-danger");
 			});
 
 			$('#but4').click(function(){
-				$('body').css("background", "linear-gradient(90deg, rgba(182,62,62,1) 0%, rgba(106,53,189,1) 0%, rgba(232,105,149,1) 100%)");
-				$(this).val("4. kliknięty");
+				$("tr:first").toggleClass("tableHead");
+				$(this).toggleClass("btn-danger");
 			});
-
+			
 			$('#but5').click(function(){
-				$('.jumbotron').css("background-color", "white");
-				$(this).val("5. kliknięty");
+				$("tr:last").slideToggle(300);
+				$(this).toggleClass("btn-danger");
 			});
 
 		});
