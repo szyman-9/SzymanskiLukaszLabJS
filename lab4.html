@@ -178,12 +178,10 @@
 					<input id="but2" class="btn btn-default" type="submit" value="2. Znikanie parzystych wierszy tabeli"><br>
 					<input id="but3" class="btn btn-default" type="submit" value="3. Zmiana koloru tekstu na zielony dla nieparzystych wierszy tabeli"><br>
 					<input id="but4" class="btn btn-default" type="submit" value="4. Nagłówek tabeli w kolorze fioletowym, pochylony"><br>
-					<input id="but5" type="submit" value="Przycisk 5"><br>
-					<input id="but6" type="submit" value="Przycisk 6"><br>
-					<input id="but7" type="submit" value="Przycisk 7"><br>
-					<input id="but8" type="submit" value="Przycisk 8"><br>
-					<input id="but9" type="submit" value="Przycisk 9"><br>
-				<input id="but10" type="submit" value="Przycisk 10">
+					<input id="but5" class="btn btn-default" type="submit" value="5. Powolne zanikanie ostatniego wiersza tabeli"><br>
+					<input id="but6" class="btn btn-default" type="submit" value="6. Powolny zanikanie i pojawianie się ostatniego wiersza tabeli i zmiana koloru"><br>
+					<input id="but7" class="btn btn-default" type="submit" value="7. Powolne zanikanie wszystkich wierszy tabeli"><br>
+					<input id="but8" class="btn btn-default" type="submit" value="8. Zcieśnianie tabelki w pionie"><br>
 				</div>
 			
 			</div>
@@ -343,9 +341,24 @@
 			});
 			
 			$('#but5').click(function(){
-				$("tr:last").slideToggle(300);
+				$("tr:last").fadeToggle(1000);
 				$(this).toggleClass("btn-danger");
 			});
+
+			$('#but6').click(function(){
+				$("tr:last").fadeOut(1000).fadeIn(1000).toggleClass('clickedButton');
+				$(this).toggleClass("btn-danger");
+			});
+
+			$('#but7').click(function(){
+				$('td').slideToggle(1200);
+				$(this).toggleClass("btn-danger");
+			})
+
+			$('#but8').click(function(){
+				$('td').slideUp(600).slideDown(789).slideUp(1200).slideDown(297);
+				$(this).toggleClass("btn-danger");
+			})
 
 		});
 	</script>
